@@ -42,55 +42,55 @@ $(function () {
 //save text values to local storage
   function saveText9(){
     descriptionEl = text9El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText10(){
     descriptionEl = text10El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText11(){
     descriptionEl = text11El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText12(){
     descriptionEl = text12El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText13(){
     descriptionEl = text13El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText14(){
     descriptionEl = text14El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText15(){
     descriptionEl = text15El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText16(){
     descriptionEl = text16El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
   function saveText17(){
     descriptionEl = text17El.val();
-    console.log(descriptionEl)
+    //console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
