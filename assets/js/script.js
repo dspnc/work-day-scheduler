@@ -100,7 +100,7 @@ $(function () {
     var hourId = blockId.split('-');
     var blockHour = hourId[1];
     var currentHour = dayjs().hour();
-    //currentHour = 14; - comment out above line and use this line for testing different hours
+    //currentHour = 14; //comment out above line and use this line for testing different hours
     //console.log("block hour: "+blockHour+ " current hour: "+currentHour)
     if (blockHour == currentHour) {
       $(this).removeClass('past')
@@ -117,16 +117,22 @@ $(function () {
     }
   })
 
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+  //storageKey array for iterating through the keys in local storage
+  var storageKeys = ["hour-9", "hour-10", "hour-11", "hour-12", "hour-13", "hour-14", "hour-15", "hour-16", "hour-17"]
+  function loadText(){
+    $('.time-block').each(function(){
+      for (var i=0; i<storageKeys.length; i++) {
+        if (this.id == storageKeys[i]) {
+          var textBox = $(this.querySelector('textarea'))
+          textBox.text(localStorage.getItem(storageKeys[i]))
+        }
+      }
+    })
+
+  
+  }
+
+  //load any text from local storage upon loading the page
+  loadText();
+  
 });
