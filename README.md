@@ -21,6 +21,6 @@ MIT License
 ---
 
 Screenshot
-<img title="deployed work day scheduler" alt="Work Day Scheduler" src="/assets/images/work-day-scheduler-deploy.jpg">
+<img title="deployed work day scheduler" alt="Work Day Scheduler" src="./assets/images/work-day-scheduler-deploy.jpg">
 
 link: https://dspnc.github.io/work-day-scheduler
