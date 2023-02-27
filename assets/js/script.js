@@ -3,21 +3,21 @@ var saveBtn9El = $('#saveBtn9');
 var saveBtn10El = $('#saveBtn10')
 var saveBtn11El = $('#saveBtn11')
 var saveBtn12El = $('#saveBtn12')
-var saveBtn1El = $('#saveBtn1')
-var saveBtn2El = $('#saveBtn2')
-var saveBtn3El = $('#saveBtn3')
-var saveBtn4El = $('#saveBtn4')
-var saveBtn5El = $('#saveBtn5')
+var saveBtn13El = $('#saveBtn13')
+var saveBtn14El = $('#saveBtn14')
+var saveBtn15El = $('#saveBtn15')
+var saveBtn16El = $('#saveBtn16')
+var saveBtn17El = $('#saveBtn17')
 
 var text9El = $('#text9');
 var text10El = $('#text10');
 var text11El = $('#text11')
 var text12El = $('#text12')
-var text1El = $('#text1')
-var text2El = $('#text2')
-var text3El = $('#text3')
-var text4El = $('#text4')
-var text5El = $('#text5')
+var text13El = $('#text13')
+var text14El = $('#text14')
+var text15El = $('#text15')
+var text16El = $('#text16')
+var text17El = $('#text17')
 
 var descriptionEl;
 
@@ -27,26 +27,19 @@ $("#currentDay").text(currentDay);
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+  // add event listeners for the buttons
   saveBtn9El.on("click", saveText9);
   saveBtn10El.on("click", saveText10);
   saveBtn11El.on("click", saveText11);
   saveBtn12El.on("click", saveText12);
-  saveBtn1El.on("click", saveText1);
-  saveBtn2El.on("click", saveText2);
-  saveBtn3El.on("click", saveText3);
-  saveBtn4El.on("click", saveText4);
-  saveBtn5El.on("click", saveText5);
+  saveBtn13El.on("click", saveText13);
+  saveBtn14El.on("click", saveText14);
+  saveBtn15El.on("click", saveText15);
+  saveBtn16El.on("click", saveText16);
+  saveBtn17El.on("click", saveText17);
 
 
-
-
-
+//save text values to local storage
   function saveText9(){
     descriptionEl = text9El.val();
     console.log(descriptionEl)
@@ -71,35 +64,58 @@ $(function () {
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
-  function saveText1(){
-    descriptionEl = text1El.val();
+  function saveText13(){
+    descriptionEl = text13El.val();
     console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
-  function saveText2(){
-    descriptionEl = text2El.val();
+  function saveText14(){
+    descriptionEl = text14El.val();
     console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
-  function saveText3(){
-    descriptionEl = text3El.val();
+  function saveText15(){
+    descriptionEl = text15El.val();
     console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
-  function saveText4(){
-    descriptionEl = text4El.val();
+  function saveText16(){
+    descriptionEl = text16El.val();
     console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
 
-  function saveText5(){
-    descriptionEl = text5El.val();
+  function saveText17(){
+    descriptionEl = text17El.val();
     console.log(descriptionEl)
     localStorage.setItem(this.parentNode.id, descriptionEl)
   }
+
+  //loop through each time block to compare the hour in the id to the current hour and assign past/present/future class accordingly
+  $('.time-block').each(function() {
+    var blockId = this.id;
+    var hourId = blockId.split('-');
+    var blockHour = hourId[1];
+    var currentHour = dayjs().hour();
+    //currentHour = 14; - comment out above line and use this line for testing different hours
+    //console.log("block hour: "+blockHour+ " current hour: "+currentHour)
+    if (blockHour == currentHour) {
+      $(this).removeClass('past')
+      $(this).removeClass('future')
+      $(this).addClass('present')
+    } else if (blockHour < currentHour) {
+      $(this).removeClass('present')
+      $(this).removeClass('future')
+      $(this).addClass('past')
+    } else if (blockHour > currentHour) {
+      $(this).removeClass('past')
+      $(this).removeClass('present')
+      $(this).addClass('future')
+    }
+  })
 
   //
   // TODO: Add code to apply the past, present, or future class to each time
